@@ -13,7 +13,7 @@ Criando um exemplo de API com Java 11 e Spring. O banco de dados utilizado para 
 - **200**: Solicitação bem-sucedida;
 - **201**: Um novo cliente foi cadastrado;
 - **204**: Cliente foi excluído com sucesso;
-  -**400**: A corpo da requisição é inválido;
+- **400**: A corpo da requisição é inválido;
 - **404**: Cliente não encontrado;
 - **409**: Conflito -> CPF ou E-mail já existente.
 
