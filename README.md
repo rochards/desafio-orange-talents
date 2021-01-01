@@ -19,4 +19,6 @@ Criando um exemplo de API com Java 11 e Spring. O banco de dados utilizado para 
 
 **OBS1.:** antes de executar este projeto é necessário configurar as credenciais do banco de dados no arquivo *application.properties*.
 
-**OBS2.:** em *db/create_table.sql* se encontra os comandos *SQL* para criação das tabelas. 
+**OBS2.:** em *db/create_table.sql* se encontra os comandos *SQL* para criação das tabelas.
+
+**OBS3.:** em *documentation/postman_documentation.json* se encontra a documentação da API.

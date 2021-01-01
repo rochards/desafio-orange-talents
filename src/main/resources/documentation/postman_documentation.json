@@ -1,0 +1,532 @@
+{
+	"info": {
+		"_postman_id": "42656876-0cc3-4d48-905c-0890babd64f0",
+		"name": "Desafio Orange Talents",
+		"description": "# API para cadastro de clientes em um banco fictício.\n\nO que pode ser feito com esta API\n- Cadastrar novo cliente;\n- Atualizar um cliente;\n- Buscar todos os clientes cadastrados;\n- Buscar um cliente por id;\n- Excluir um cliente.\n\nCódigos HTTP da API\n- **200**: Solicitação bem-sucedida;\n- **201**: Um novo cliente foi cadastrado;\n- **204**: Cliente foi excluído com sucesso;\n-**400**: A corpo da requisição é inválido;\n- **404**: Cliente não encontrado;\n- **409**: Conflito -> CPF ou E-mail já existente.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/clients/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clients",
+						""
+					]
+				},
+				"description": "Busca todos os clientes cadastrados no banco de dados."
+			},
+			"response": [
+				{
+					"name": "Exemplo de busca de clientes",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/clients/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clients",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 30 Dec 2020 18:02:08 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 5,\n        \"cpf\": \"11198395739\",\n        \"name\": \"Oliver Queen\",\n        \"email\": \"queen@gmail.com\",\n        \"birthDate\": \"1994-12-22\",\n        \"createdAt\": \"2020-12-29T20:11:24-03:00\"\n    },\n    {\n        \"id\": 8,\n        \"cpf\": \"09877755532\",\n        \"name\": \"Jhonatan Kent\",\n        \"email\": \"kent@gmail.com\",\n        \"birthDate\": \"2020-04-21\",\n        \"createdAt\": \"2020-12-30T10:10:59-03:00\"\n    },\n    {\n        \"id\": 25,\n        \"cpf\": \"09877755530\",\n        \"name\": \"Clark Kent\",\n        \"email\": \"clark@gmail.com\",\n        \"birthDate\": \"1994-12-21\",\n        \"createdAt\": \"2020-12-30T11:59:28-03:00\"\n    },\n    {\n        \"id\": 29,\n        \"cpf\": \"74363480009\",\n        \"name\": \"Martha Kent\",\n        \"email\": \"martha_kent@gmail.com\",\n        \"birthDate\": \"1984-12-21\",\n        \"createdAt\": \"2020-12-30T12:02:54-03:00\"\n    },\n    {\n        \"id\": 31,\n        \"cpf\": \"09484174043\",\n        \"name\": \"Lana Lang\",\n        \"email\": \"lana@gmail.com\",\n        \"birthDate\": \"1984-12-04\",\n        \"createdAt\": \"2020-12-30T12:04:47-03:00\"\n    },\n    {\n        \"id\": 36,\n        \"cpf\": \"36474749083\",\n        \"name\": \"Lex Luthor\",\n        \"email\": \"lex@gmail.com\",\n        \"birthDate\": \"1984-12-04\",\n        \"createdAt\": \"2020-12-30T14:44:43-03:00\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "getById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/clients/35",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clients",
+						"35"
+					]
+				},
+				"description": "Busca um cliente por id."
+			},
+			"response": [
+				{
+					"name": "Buscando cliente passando um id existente.",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/clients/31",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clients",
+								"31"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 30 Dec 2020 18:34:17 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 31,\n    \"cpf\": \"09484174043\",\n    \"name\": \"Lana Lang\",\n    \"email\": \"lana@gmail.com\",\n    \"birthDate\": \"1984-12-04\",\n    \"createdAt\": \"2020-12-30T12:04:47-03:00\"\n}"
+				}
+			]
+		},
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cpf\": \"29161783099\",\n    \"name\": \"Lex Luthor\",\n    \"email\": \"lex@gmail.com\",\n    \"birthDate\": \"1984-12-04\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/clients/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clients",
+						""
+					]
+				},
+				"description": "Cria um novo cliente."
+			},
+			"response": [
+				{
+					"name": "Criando novo cliente.",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cpf\": \"29161783099\",\n    \"name\": \"Lex Luthor\",\n    \"email\": \"lex@gmail.com\",\n    \"birthDate\": \"1984-12-04\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/clients/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clients",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 30 Dec 2020 18:42:47 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 40,\n    \"cpf\": \"29161783099\",\n    \"name\": \"Lex Luthor\",\n    \"email\": \"lex@gmail.com\",\n    \"birthDate\": \"1984-12-04\",\n    \"createdAt\": \"2020-12-30T15:42:47.198082-03:00\"\n}"
+				},
+				{
+					"name": "Criando cliente com email existente.",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cpf\": \"29161783099\",\n    \"name\": \"Lex Luthor\",\n    \"email\": \"lana@gmail.com\",\n    \"birthDate\": \"1984-12-04\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/clients/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clients",
+								""
+							]
+						}
+					},
+					"status": "Conflict",
+					"code": 409,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 30 Dec 2020 18:39:25 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 409,\n    \"timestamp\": \"2020-12-30T15:39:25.620867-03:00\",\n    \"title\": \"One or more fields are invalid!\",\n    \"fields\": [\n        {\n            \"name\": \"email\",\n            \"message\": \"Duplicate entry 'lana@gmail.com'\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "Criando cliente com cpf existente.",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cpf\": \"09484174043\",\n    \"name\": \"Lex Luthor\",\n    \"email\": \"lana@gmail.com\",\n    \"birthDate\": \"1984-12-04\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/clients/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clients",
+								""
+							]
+						}
+					},
+					"status": "Conflict",
+					"code": 409,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 30 Dec 2020 18:42:07 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 409,\n    \"timestamp\": \"2020-12-30T15:42:07.601165-03:00\",\n    \"title\": \"One or more fields are invalid!\",\n    \"fields\": [\n        {\n            \"name\": \"cpf\",\n            \"message\": \"Duplicate entry '09484174043'\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/clients/36",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clients",
+						"36"
+					]
+				},
+				"description": "Exclui o cliente especificado pelo id."
+			},
+			"response": [
+				{
+					"name": "Excluíndo cliente passando um id existente.",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/clients/36",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clients",
+								"36"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 30 Dec 2020 18:36:15 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cpf\": \"36474749083\",\n    \"name\": \"Lex Luthor\",\n    \"email\": \"lex@gmail.com\",\n    \"birthDate\": \"1974-12-04\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/clients/36",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clients",
+						"36"
+					]
+				},
+				"description": "Atualiza o cliente especificado pelo id."
+			},
+			"response": [
+				{
+					"name": "Atualizando cliente passando um id inexistente.",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cpf\": \"36474749083\",\n    \"name\": \"Lex Luthor\",\n    \"email\": \"lex@gmail.com\",\n    \"birthDate\": \"1974-12-04\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/clients/37",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clients",
+								"37"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 30 Dec 2020 18:28:20 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Atualizando cliente passando um id existente.",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cpf\": \"36474749083\",\n    \"name\": \"Lex Luthor\",\n    \"email\": \"lex@gmail.com\",\n    \"birthDate\": \"1974-12-04\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/clients/36",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clients",
+								"36"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 30 Dec 2020 18:26:57 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 36,\n    \"cpf\": \"36474749083\",\n    \"name\": \"Lex Luthor\",\n    \"email\": \"lex@gmail.com\",\n    \"birthDate\": \"1974-12-04\",\n    \"createdAt\": \"2020-12-30T14:44:43-03:00\"\n}"
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "cpf",
+			"value": "09877755533"
+		}
+	]
+}
